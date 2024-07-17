@@ -1,7 +1,11 @@
 - name: Push configuration changes
-  hosts: localhosts
+  hosts: routers
   gather_facts: no
   tasks:
-    - name: Print on terminal
-      debug:
-        msg: This task is successful
+    - name: Apply configuration changes
+      ios_config:
+        lines:
+          - interface Loopback 0
+          - description Configured by Ansible
+          - ip address 192.168.2.1 255.255.255.0
+        save_when: modified
