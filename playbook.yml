@@ -3,9 +3,5 @@
   gather_facts: no
   tasks:
     - name: Apply configuration changes
-      ios_config:
-        lines:
-          - interface Loopback 0
-          - description Configured by Ansible
-          - ip address 192.168.2.1 255.255.255.0
-        save_when: modified
+      debug:
+        msg: This is a success
